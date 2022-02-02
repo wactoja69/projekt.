@@ -170,3 +170,113 @@ class Game(Product):
                 plt.bar(names, values)
                 plt.suptitle('Oceny filmów')
                 plt.show()
+
+
+if choice == '2':
+            # Wyświetlenie serialów
+            print(f'Lista serialów:')
+            for x in range(len(series)):
+                print(f'{x + 1}.{series[x].name}')
+
+            print(f'\n\n0.Wróć')
+            print(f'1.Zobacz szczegóły serialu:')
+            print(f'2.Ocen serial 1-10:')
+            print(f'3.Dodaj serial')
+            print(f'4.Wyswietl oceny seriali')
+            choice = input("Wprowadz co chcesz zrobić: ")
+
+            # Wyświetlenie info konkretnego serialu
+            if choice == '1':
+                choice = input("\nWprowadz numer serialu: ")
+                choice = int(choice)
+                for x in range(len(series)):
+                    if x == choice - 1:
+                        series[x].info()
+            # Ocena konkretnego serialu
+            if choice == '2':
+                choice = input("\nWprowadz numer serialu: ")
+                choice = int(choice)
+                for x in range(len(series)):
+                    if x == choice - 1:
+                        series[x].rateSeries()
+
+            if choice == '3':
+                choice = input("\nPodaj nazwe serialu ")
+                choice2 = input("\nPodaj opis serialu ")
+                choice3 = input("\nPodaj cene serialu ")
+                choice3 = float(choice3)
+                series.append(Series(choice, 10, 1, choice3, choice2))
+                choice3 = input("\nSerial został dodany! ")
+
+
+            if choice == '4':
+                names = []
+                values = []
+
+                for x in range(len(series)):
+                    names.append(series[x].name)
+                    values.append(round(series[x].raitingSum / series[x].raitingCount, 2))
+
+                plt.figure(figsize=(8, 4))
+                plt.subplot(131)
+                plt.bar(names, values)
+                plt.suptitle('Oceny seriali')
+                plt.show()
+
+
+        if choice == '3':
+            # Wyświetlenie gier
+            print(f'Lista gier:')
+            for x in range(len(games)):
+                print(f'{x + 1}.{games[x].name}')
+
+            print(f'\n\n0.Wróć')
+            print(f'1.Zobacz szczegóły gry:')
+            print(f'2.Ocen grę 1-10:')
+            print(f'3.Dodaj grę')
+            print(f'4.Wyswietl oceny gier')
+            choice = input("Wprowadz co chcesz zrobić: ")
+
+            # Wyświetlenie info konkretnej gry
+            if choice == '1':
+                choice = input("\nWprowadz numer gry: ")
+                choice = int(choice)
+                for x in range(len(games)):
+                    if x == choice - 1:
+                        games[x].info()
+            # Ocena konkretnej gry
+            if choice == '2':
+                choice = input("\nWprowadz numer gry: ")
+                choice = int(choice)
+                for x in range(len(series)):
+                    if x == choice - 1:
+                        games[x].rateGame()
+            if choice == '3':
+                choice = input("\nPodaj nazwe gry ")
+                choice2 = input("\nPodaj opis gry ")
+                choice3 = input("\nPodaj cene gry ")
+                choice3 = float(choice3)
+                games.append(Game(choice, 10, 1, choice3, choice2))
+                choice3 = input("\nGra został dodany! ")
+
+
+
+            if choice == '4':
+                names = []
+                values = []
+
+                for x in range(len(games)):
+                    names.append(games[x].name)
+                    values.append(round(games[x].raitingSum / games[x].raitingCount, 2))
+
+                plt.figure(figsize=(8, 4))
+                plt.subplot(131)
+                plt.bar(names, values)
+                plt.suptitle('Oceny gier')
+                plt.show()
+
+
+        if choice == '4':
+            print(f'Do zobaczenia!')
+            exit()
+
