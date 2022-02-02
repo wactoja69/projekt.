@@ -36,9 +36,10 @@ class Movie(Product):
             print(f'Dodano twoją ocenę !')
             print(f'Ocena w tym momencie wynosi: {round(self.raitingSum / self.raitingCount)}')
             else:
-            print(f'Błąd, nie ma takiej oceny")
+            print(f'Błąd, nie możessz dodać takiej oceny")
             
-            class Series(Product):
+      
+    class Series(Product):
 
     def __init__(self, name, raitingSum, raitingCount, cost, description):
         super().__init__(name,  raitingSum, raitingCount, cost, description)
@@ -55,6 +56,8 @@ class Movie(Product):
             self.raitingCount = self.raitingCount + 1
             print(f'Dodano twoją ocenę !')
             print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
+            else:
+            print (f' Błąd, nie możesz dodać takiej oceny')
 
 class Game(Product):
 
@@ -73,6 +76,8 @@ class Game(Product):
             self.raitingCount = self.raitingCount + 1
             print(f'Dodano twoją ocenę !')
             print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
+            else:
+            print (f' Błąd, nie możesz dodać takiej oceny')
             
     if __name__ == '__main__':
     #Dodanie przykładowych filmów
