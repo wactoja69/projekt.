@@ -38,3 +38,38 @@ class Movie(Product):
             else:
             print(f'Błąd, nie ma takiej oceny")
             
+            class Series(Product):
+
+    def __init__(self, name, raitingSum, raitingCount, cost, description):
+        super().__init__(name,  raitingSum, raitingCount, cost, description)
+
+    def info(self):
+        print(f'Tytuł: {self.name}, koszt: {self.cost} ocena: {round(self.raitingSum / self.raitingCount,2)}')
+        print(f'Opis: {self.description}')
+    def rateSeries(self):
+        print(f'Aktualna ocena serialu {self.name} to : {round(self.raitingSum / self.raitingCount,2)}')
+        inp = input('Wpisz swoją ocenę:')
+        inp = int(inp)
+        if inp >= 1 and inp <=10:
+            self.raitingSum = self.raitingSum + inp
+            self.raitingCount = self.raitingCount + 1
+            print(f'Dodano twoją ocenę !')
+            print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
+
+class Game(Product):
+
+    def __init__(self, name, raitingSum, raitingCount, cost, description):
+        super().__init__(name,  raitingSum, raitingCount, cost, description)
+
+    def info(self):
+        print(f'Tytuł: {self.name}, koszt: {self.cost} ocena: {round(self.raitingSum / self.raitingCount,2)}')
+        print(f'Opis: {self.description}')
+    def rateGame(self):
+        print(f'Aktualna ocena gry {self.name} to : {round(self.raitingSum / self.raitingCount,2)}')
+        inp = input('Wpisz swoją ocenę:')
+        inp = int(inp)
+        if inp >= 1 and inp <=10:
+            self.raitingSum = self.raitingSum + inp
+            self.raitingCount = self.raitingCount + 1
+            print(f'Dodano twoją ocenę !')
+            print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
