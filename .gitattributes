@@ -37,6 +37,4 @@ class Movie(Product):
             print(f'Ocena w tym momencie wynosi: {round(self.raitingSum / self.raitingCount)}')
             else:
             print(f'Błąd, nie ma takiej oceny")
-
-
-okokokoko
+            
