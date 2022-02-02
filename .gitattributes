@@ -1,2 +1,39 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+import matplotlib.pyplot as plt
+
+
+#klasa ogólna
+class Product:
+    def __init__(self, name,  raitingSum, raitingCount, cost, description):
+        self.name = name
+        self.raitingSum = raitingSum
+        self.raitingCount = raitingCount
+        self.cost = cost
+        self.description = description
+
+
+class Movie(Product):
+
+
+    #KONSTRUKTOR
+    def __init__(self, name, raitingSum, raitingCount, cost, description):
+        super().__init__(name,  raitingSum, raitingCount, cost, description)
+
+    #metoda - wyswietlenie informacji
+    def info(self):
+        print(f'Tytuł: {self.name}, koszt: {self.cost} ocena: {round(self.raitingSum / self.raitingCount,2)}')
+        print(f'Opis: {self.description}')
+
+
+
+    #metoda - ocena filmu
+    def rateMovie(self):
+        print(f'Aktualna ocena filmu {self.name} to : {round(self.raitingSum / self.raitingCount, 2)}')
+        inp = input('Wpisz swoją ocenę:')
+        inp = int(inp)
+        if inp >= 1 and inp <= 10:
+            self.raitingSum = self.raitingSum + inp
+            self.raitingCount = self.raitingCount + 1
+            print(f'Dodano twoją ocenę !')
+            print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
+            else:
+            print(f'Błąd, nie ma takiej oceny")
