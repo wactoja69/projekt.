@@ -73,3 +73,95 @@ class Game(Product):
             self.raitingCount = self.raitingCount + 1
             print(f'Dodano twoją ocenę !')
             print(f'Ocena w tym momencie wynosi: {self.raitingSum / self.raitingCount}')
+            
+    if __name__ == '__main__':
+    #Dodanie przykładowych filmów
+    movies = []
+    movies.append(Movie("Diuna", 55,7,22.00, "Film o ludzikach na planecie"))
+    movies.append(Movie("Psy", 120,15,39.99,"Dżuma i uprzedzenie"))
+    movies.append(Movie("Warka", 170,18,39.99,"Nic dodac nic ująć"))
+    movies.append(Movie("Król lew", 255,30,24.00, "Biegający lew"))
+
+
+    #Dodanie przykładowych seriali
+    series = []
+    series.append(Series("Gra o tron", 55,7,22.00, "Wojna o tron"))
+    series.append(Series("Braking bad", 120,15,39.99,"Gotowanie metaanfetaminy"))
+
+
+    #Dodanie przykładowych filmów
+    games = []
+    games.append(Game("Dark souls", 55,7,22.00, "You died"))
+    games.append(Game("Mario", 120,15,39.99,"It is me Mario!"))
+    games.append(Game("Animal Crossing: New Horizons", 255,30,24.00, "Budowanie swojej planetki"))
+
+
+
+    checker = False;
+
+
+    #Petla główna programu
+    while(checker == False):
+        print(f'Witaj! Wybierz co chcialbys zrobic')
+        print(f'1.Pokaz filmy')
+        print(f'2.Pokaz seriale')
+        print(f'3.Pokaz gry')
+        print(f'4.Wyjdz')
+        choice = input("Wprowadz co chcesz zrobić: ")
+
+
+        #Opcje dotyczące filmów
+        if choice == '1':
+            #Wyświetlenie filmów
+            print(f'Lista filmow:')
+            for x in range(len(movies)):
+                print(f'{x + 1}.{movies[x].name}')
+
+            print(f'\n\n0.Wróć')
+            print(f'1.Zobacz szczegóły filmu:')
+            print(f'2.Ocen film 1-10:')
+            print(f'3.Dodaj film')
+            print(f'4.Wyswietl oceny filmów')
+
+            choice = input("Wprowadz co chcesz zrobić: ")
+
+            #Wyświetlenie info konkretnego filmu
+            if choice == '1':
+                choice = input("\nWprowadz numer filmu: ")
+                choice = int(choice)
+                for x in range(len(movies)):
+                    if x == choice - 1:
+                        movies[x].info()
+
+            #Ocena konkretnego filmu
+            if choice == '2':
+                choice = input("\nWprowadz numer filmu: ")
+                choice = int(choice)
+                for x in range(len(movies)):
+                    if x == choice - 1:
+                        movies[x].rateMovie()
+
+            #Dodanie nowego filmu
+            if choice == '3':
+                choice = input("\nPodaj nazwe filmu ")
+                choice2 = input("\nPodaj opis filmu ")
+                choice3 = input("\nPodaj cene filmu ")
+                choice3 = float(choice3)
+                movies.append(Movie(choice, 10,1,choice3, choice2))
+                choice3 = input("\nFilm został dodany! ")
+
+
+            #Wyswietlenie ocen filmów
+            if choice == '4':
+                names = []
+                values = []
+
+                for x in range(len(movies)):
+                       names.append(movies[x].name)
+                       values.append(round(movies[x].raitingSum/movies[x].raitingCount,2))
+
+                plt.figure(figsize=(8,4))
+                plt.subplot(131)
+                plt.bar(names, values)
+                plt.suptitle('Oceny filmów')
+                plt.show()
