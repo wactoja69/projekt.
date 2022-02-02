@@ -38,4 +38,3 @@ class Movie(Product):
             else:
             print(f'Błąd, nie ma takiej oceny")
             
-            asdadasdas
